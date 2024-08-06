@@ -12,6 +12,7 @@ from langchain_community.vectorstores import DocArrayInMemorySearch
 from langchain.schema import Document
 from qdrant_client import QdrantClient
 from langchain.vectorstores import Qdrant
+install python-dotenv
 
 import logging
 import re
@@ -23,9 +24,9 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 app = Flask(__name__)
-slack_event_adapter = SlackEventAdapter('8cc2c99f179e812f76c8ee9fb141ee1e', '/slack/events', app)
+slack_event_adapter = SlackEventAdapter(process.env.EVENT_ADAPTER, '/slack/events', app)
 
-slack_client = WebClient(token='xoxb-7377297086432-7344402351879-PVpNM5jsY6xrkmIP4mmWdT2V')
+slack_client = WebClient(token=process.env.SLACK_TOKEN)
 
 bot_user_id = slack_client.auth_test()["user_id"]
 
