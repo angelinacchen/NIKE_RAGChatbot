@@ -1,6 +1,6 @@
 # NIKE_RAGChatbot
 
-This RAG based chatbot is used for the NIKE CORL(Consumer Order Repository Line) Slack channel:
+This RAG based chatbot is used for the NIKE CORL(Consumer Order Repository Line) Slack channel. Its purpose is to reduce the amount of time employees at Nike in Global Technology need to spend finding information about CORL in Confluence pages and answering other people's questions.
 
 <img width="1020" alt="Screenshot 2024-08-06 at 10 19 19 AM" src="https://github.com/user-attachments/assets/c43b39bf-ed26-4e54-bc2c-4ea5bb5bb740">
 
@@ -33,4 +33,10 @@ Technical Questions:
 General Questions:
 
 <img width="301" alt="image" src="https://github.com/user-attachments/assets/82008643-af3a-49d6-9e42-a4e64d1c4146">
+
+How to run this project:
+Embeddings_Setup: This python script will access the context for the RAG in pdf form. It splits the text into 1000 character text chunks with a 100 character overlap and creates vector embeddings for the text chunks using the vector database Qdrant. This is saved locally on the computer. 
+
+
+BotApp.py: This python script uses vector embeddings saved in the Qdrant database to generate a response using the Llama3 llm(large language model). It contains code connecting the model to Slack and customizing when the bot is mentioned, the kind of context used to answer follow up questions, questions with code chunks, and questions with images. 
 
